@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum Log — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">LP</div>
+    <div class="brand-text">
+      <h1>Leonida Platinum Log</h1>
+      <p class="tagline">Grand Theft Auto VI — the 55-trophy guide &amp; tracker for PlayStation 5</p>
+    </div>
+  </div>
+  <div class="progress-box" aria-label="Overall progress">
+    <div class="progress-line">
+      <strong id="earnedTotal">0 / 55</strong>
+      <span id="gradeCounts" class="grade-counts"></span>
+    </div>
+    <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+    <div class="header-actions">
+      <label class="switch" title="Hide the names and descriptions of story trophies you have not earned yet">
+        <input type="checkbox" id="spoilerToggle">
+        <span class="switch-ui"></span> Spoiler shield
+      </label>
+      <button id="exportBtn" type="button">Export progress</button>
+      <button id="importBtn" type="button">Import</button>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+    </div>
+  </div>
+</header>
+
+<nav class="viewnav" aria-label="Views">
+  <button type="button" data-view="tracker" class="active">Tracker</button>
+  <button type="button" data-view="roadmap">Roadmap to Platinum</button>
+  <button type="button" data-view="missables">Missables</button>
+  <button type="button" data-view="sources">Sources</button>
+</nav>
+
+<main class="layout">
+  <div class="content">
+    <section id="view-tracker" class="view active">
+      <div class="filters">
+        <div class="filter-tabs" id="kindTabs" role="tablist" aria-label="Filter by type">
+          <button type="button" data-kind="all" class="active">All</button>
+          <button type="button" data-kind="story">Story</button>
+          <button type="button" data-kind="missable">Missable</button>
+          <button type="button" data-kind="collectibles">Collectibles</button>
+          <button type="button" data-kind="activities">Activities</button>
+          <button type="button" data-kind="online">Online</button>
+          <button type="button" data-kind="notearned">Not earned</button>
+        </div>
+        <div class="filter-row">
+          <div class="grade-chips" id="gradeChips" aria-label="Filter by grade">
+            <button type="button" data-grade="all" class="active">All grades</button>
+            <button type="button" data-grade="platinum">Platinum</button>
+            <button type="button" data-grade="gold">Gold</button>
+            <button type="button" data-grade="silver">Silver</button>
+            <button type="button" data-grade="bronze">Bronze</button>
+          </div>
+          <input type="search" id="searchBox" placeholder="Search trophies…" aria-label="Search trophies">
+        </div>
+      </div>
+      <p id="listSummary" class="list-summary"></p>
+      <ol id="trophyList" class="trophy-list"></ol>
+    </section>
+
+    <section id="view-roadmap" class="view">
+      <h2>Roadmap to the Platinum</h2>
+      <p class="view-intro">Six stages, in the order that wastes the least travel. Story first — with the stranger
+      finales finished before the finale, because their post-story availability is unconfirmed — then the
+      strands, activities, the great location sweep, free-roam feats, and the 100% finish.</p>
+      <div id="roadmapStages"></div>
+    </section>
+
+    <section id="view-missables" class="view">
+      <h2>Missables &amp; one-time windows</h2>
+      <p class="view-intro">Every flag below is argued from the trophy's own official description, quoted in its
+      note — no outside claims. Where a window is unconfirmed, the note says so plainly.</p>
+      <ol id="missableList" class="trophy-list"></ol>
+    </section>
+
+    <section id="view-sources" class="view">
+      <h2>Sources</h2>
+      <p class="view-intro">The official trophy list used here is the one published for PlayStation 5 on
+      18 November 2026. Names, descriptions and grades are reproduced exactly as published; every guide is
+      written for this app and cites its sources beside the trophy it belongs to.</p>
+      <ul id="sourceList" class="source-list"></ul>
+      <p class="view-intro">This app works fully offline and fetches nothing — the addresses above are printed
+      as text for you to visit in your own browser if you want to check a list against the originals.</p>
+    </section>
+  </div>
+
+  <aside id="detailPanel" class="detail" hidden>
+    <button type="button" id="detailClose" class="detail-close" aria-label="Close guide">×</button>
+    <div id="detailBody"></div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <p>Progress is stored only in this browser (localStorage). Export a backup before clearing site data.
+  An unofficial fan guide — not affiliated with Rockstar Games or PlayStation.</p>
+</footer>
+
+<script src="data/trophies.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
